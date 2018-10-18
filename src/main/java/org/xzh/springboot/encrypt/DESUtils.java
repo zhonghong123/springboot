@@ -13,6 +13,8 @@ import javax.crypto.spec.DESKeySpec;
  *
  */
 public class DESUtils {
+	
+	private static final String DEFAULT_CIPHER_ALGORITHM = "DES/ECB/PKCS5Padding";
 
 	private static final String KEY_ALGORITHM = "DES";
 	
@@ -20,7 +22,7 @@ public class DESUtils {
 	
 	public static byte[] aesEncrypt(final String message, final String key) throws Exception{
 		//获取cipher对象
-		Cipher cipher = Cipher.getInstance(KEY_ALGORITHM);
+		Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);
 		//初始化cipher对象
 		cipher.init(Cipher.ENCRYPT_MODE, getSecretKey(key), new SecureRandom());
 		//执行操作
@@ -30,7 +32,7 @@ public class DESUtils {
 	
 	public static String aesDecrypt(final byte[] bytes, final String key) throws Exception{
 		//获取cipher对象
-		Cipher cipher = Cipher.getInstance(KEY_ALGORITHM);
+		Cipher cipher = Cipher.getInstance(DEFAULT_CIPHER_ALGORITHM);
 		//初始化cipher对象
 		cipher.init(Cipher.DECRYPT_MODE, getSecretKey(key), new SecureRandom());
 		//执行操作
