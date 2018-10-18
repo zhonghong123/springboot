@@ -1,5 +1,6 @@
 package org.xzh.springboot.encrypt;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -20,10 +21,11 @@ public class DigestUtils {
 	 * @param message
 	 * @return
 	 * @throws NoSuchAlgorithmException
+	 * @throws UnsupportedEncodingException 
 	 */
-	public static String md5Sum(String message) throws NoSuchAlgorithmException{
+	public static String md5Sum(String message) throws NoSuchAlgorithmException, UnsupportedEncodingException{
 		MessageDigest digest = MessageDigest.getInstance("MD5");
-		byte[] bytes = digest.digest(message.getBytes());
+		byte[] bytes = digest.digest(message.getBytes("UTF-8"));
 		String md5 = Hex.encodeHexString(bytes);
 		return md5;
 	}
@@ -64,7 +66,7 @@ public class DigestUtils {
 		return org.apache.commons.codec.digest.DigestUtils.sha1Hex(message);
 	}
 	
-	public static void main(String[] args) throws NoSuchAlgorithmException {
+	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		String md5 = "md5";
 		System.out.println(md5Sum(md5));
 		System.out.println(md5Sum2(md5));
