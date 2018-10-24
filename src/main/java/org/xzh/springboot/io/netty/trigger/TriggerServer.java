@@ -42,7 +42,7 @@ public class TriggerServer {
 	
 	public static void main(String[] args) {
 		try {
-			new TriggerServer().bind(8080);
+			new TriggerServer().bind(9080);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
