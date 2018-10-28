@@ -36,6 +36,15 @@ public class SHA1withRSAUtils {
 		return bytes;
 	}
 	
+	/**
+	 * 验签
+	 * 
+	 * @param bytes
+	 * @param data
+	 * @param rsaPublicKey
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean verify(byte[] bytes, String data, RSAPublicKey rsaPublicKey) throws Exception{
 		//获取Signature对象
 		Signature sign = Signature.getInstance(KEY_ALGORITHM);
