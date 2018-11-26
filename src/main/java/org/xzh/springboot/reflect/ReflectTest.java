@@ -41,7 +41,8 @@ public class ReflectTest {
 	}
 
 	/**
-	 * 构造函数是java创建对象的必经之路，所以通过反射拿到一个类的构造函数后， 再去创建这个类的对象自然是易如反掌，常用的方法如下：
+	 * 构造函数是java创建对象的必经之路，所以通过反射拿到一个类的构造函数后， 再去创建这个类的对象自然是易如反掌，
+	 * 常用的方法如下：
 	 * 
 	 * @throws InvocationTargetException
 	 * @throws IllegalArgumentException

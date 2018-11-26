@@ -1,6 +1,7 @@
 package org.xzh.springboot.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.xzh.springboot.io.netty.channel.NettyChannel;
@@ -11,7 +12,8 @@ public class NettyController {
 
 	@RequestMapping("/hello")
 	@ResponseBody
-	public String hello(String name){
+	public String hello(Model model, String name){
+		model.addAttribute("name", name);
 		try {
 			new NettyChannel().send(name);
 		} catch (Exception e) {
