@@ -2,6 +2,7 @@ package org.xzh.springboot.annotation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -82,6 +83,26 @@ public class MyAnnotationTest {
 			if(field.isAnnotationPresent(MyAnnotation.class)){
 				MyAnnotation myAnnotation = field.getAnnotation(MyAnnotation.class);
 				
+				logger.info("color:{}", myAnnotation.color());
+				logger.info("value:{}", myAnnotation.value());
+				logger.info("arrint:{}", myAnnotation.arrint());
+				logger.info("lamp:{}", myAnnotation.lamp());
+				logger.info("annotationAttr:{}", myAnnotation.annotationAttr().value());
+			}
+		}
+	}
+	
+	public void param(@MyAnnotation("xzh") String name){
+		logger.info("name-->{}", name);
+	}
+	
+	@Test
+	public void paramTest() throws NoSuchMethodException, SecurityException{
+		Method paramMethod = MyAnnotationTest.class.getDeclaredMethod("param", String.class);
+		Parameter[] parameters = paramMethod.getParameters();
+		for(Parameter parameter : parameters){
+			if(parameter.isAnnotationPresent(MyAnnotation.class)){
+				MyAnnotation myAnnotation = parameter.getAnnotation(MyAnnotation.class);
 				logger.info("color:{}", myAnnotation.color());
 				logger.info("value:{}", myAnnotation.value());
 				logger.info("arrint:{}", myAnnotation.arrint());
