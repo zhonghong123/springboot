@@ -3,6 +3,7 @@ package org.xzh.springboot.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,8 +13,9 @@ public class IndexController {
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	@RequestMapping("/toIndex")
-	public String index(){
+	public String index(Model model){
 		logger.info("index...");
+		model.addAttribute("text", "hello world");
 		return "index";
 	}
 }
