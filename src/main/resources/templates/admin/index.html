@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Admin</title>
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!-- 设置移动设备的 -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+		
+		<script type="text/javascript" src="/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!-- 页面头部导航条navbar，务必使用 <nav> 元素 -->
+		<!-- 
+			navbar-inverse:反色导航条
+			navbar-fixed-top：导航条固定在顶部
+		 -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<!-- 设置导航条container -->
+			<div class="container-fluid">
+				<!-- 导航条头部 -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+						data-target="#navbar-collapse-admin" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- 
+						品牌图标
+						将导航条内放置品牌标志的地方替换为 <img> 元素即可展示自己的品牌图标。
+						由于 .navbar-brand 已经被设置了内补（padding）和高度（height），
+						你需要根据自己的情况添加一些 CSS 代码从而覆盖默认设置。
+					 -->
+					<a class="navbar-brand" href="#">Project name</a>
+				</div>
+				
+				<!-- 
+				导航条
+				如果 JavaScript 被禁用，并且视口（viewport）足够窄，致使导航条折叠起来，导航条将不能被打开，
+				.navbar-collapse 内所包含的内容也将不可见。
+				 -->
+				<div class="collapse navbar-collapse" id="navbar-collapse-admin">
+					<!-- 用户头像 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">
+								<img src="#" alt="头像" class="img-circle" />
+							</a>
+						</li>
+					</ul>
+				
+					<!-- 其他链接 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Settings</a></li>
+					</ul>
+				
+					<!-- 表单，navbar-right：靠右对齐 -->
+					<form action="" class="navbar-form navbar-right">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search..." />
+						</div>
+						<!-- <button type="button" class="btn btn-default">确定</button> -->
+					</form>
+				</div>
+			</div>
+		</nav>
+	
+		<!-- 页面内容 -->
+		<div class="container-fluid">
+			<div class="row">
+				<!-- 左侧菜单 -->
+				<div class="col-md-2 col-xs-3 menu">
+					<ul>
+						<li><a href="#">Menu1</a></li>
+						<li><a href="#">Menu2</a></li>
+						<li><a href="#">Menu3</a></li>
+						<li><a href="#">Menu4</a></li>
+						<li><a href="#">Menu5</a></li>
+						<li><a href="#">Menu6</a></li>
+					</ul>
+				</div>
+				
+				<!-- 右侧内容 -->
+				<div class="col-md-10 col-xs-9"></div>
+			</div>
+		</div>
+	</body>
+</html>
