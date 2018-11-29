@@ -10,6 +10,9 @@
 		
 		<link href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
 		
+		<!-- 引入其他css，主要用来做左侧菜单 -->
+		<link href="/springboot.css" rel="stylesheet" />
+		
 		<script type="text/javascript" src="/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	</head>
@@ -75,9 +78,9 @@
 		<div class="container-fluid">
 			<div class="row">
 				<!-- 左侧菜单 -->
-				<div class="col-md-2 col-xs-3 menu">
-					<ul>
-						<li><a href="#">Menu1</a></li>
+				<div class="col-md-2 col-xs-3 sidebar">
+					<ul class="nav nav-sidebar">
+						<li><a href="#">Overview</a></li>
 						<li><a href="#">Menu2</a></li>
 						<li><a href="#">Menu3</a></li>
 						<li><a href="#">Menu4</a></li>
@@ -87,7 +90,9 @@
 				</div>
 				
 				<!-- 右侧内容 -->
-				<div class="col-md-10 col-xs-9"></div>
+				<div class="col-md-10 col-xs-9 main">
+					<h1 class="page-header">main</h1>
+				</div>
 			</div>
 		</div>
 	</body>
