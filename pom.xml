@@ -93,6 +93,18 @@
 		    <artifactId>zookeeper</artifactId>
 		    <version>3.3.3</version>
 		</dependency> -->
+		
+		<!-- ehcache -->
+		<dependency>
+			<groupId>org.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
+		
+		<!-- redis client: jedis -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    </dependency>
 						
 		<dependency>
 			<groupId>junit</groupId>
