@@ -36,4 +36,24 @@ public class UserMapperTest {
 			sqlSession.close();
 		}
 	}
+	
+	@Test
+	public void saveUserTest(){
+		SqlSessionFactory sqlSessionFactory = MySqlSessionFactory.getSqlSessionFactory();
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try{
+			User user = new User();
+			user.setId(3);
+			user.setUsername("wangwu");
+			user.setAge(13);
+			
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			userMapper.saveUser(user);
+			sqlSession.commit();
+		}catch(Exception e){
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+	}
 }

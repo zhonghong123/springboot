@@ -13,4 +13,8 @@
 	<select id="getUserById" resultMap="User">
 		select * from user where id=#{id}
 	</select>
+	
+	<select id="saveUser" parameterType="org.xzh.springboot.mybatis.mapper.User">
+		insert into user(id, username, age) values (#{id}, #{username}, #{age})
+	</select>
 </mapper>

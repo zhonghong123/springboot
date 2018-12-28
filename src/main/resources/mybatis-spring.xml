@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="
+  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+ 	
+ 	<context:property-placeholder location="classpath:jdbc.properties"/>
+ 	
+ 	<!-- 配置数据源 -->
+ 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/acs" />
+		<property name="username" value="${username}" />
+		<property name="password" value="xzh123" />
+ 	</bean>
+ 
+ 	<!-- 通过SqlSessionFactoryBean配置sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+ 
+ 	<!-- 通过MapperFactoryBean配置Mapper-->
+ 	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+ 		<property name="mapperInterface" value="org.xzh.springboot.mybatis.mapper.UserMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+ 	
+ 	<!-- 配置service -->
+ 	<bean id="userServiceImpl" class="org.xzh.springboot.mybatis.spring.UserServiceImpl">
+ 		<property name="userMapper" ref="userMapper" />
+ 	</bean>
+ 	
+ 	<!-- 事物配置 -->
+ 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 		<property name="dataSource" ref="dataSource" />
+ 	</bean>
+ 	
+</beans>
